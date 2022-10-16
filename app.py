@@ -1,0 +1,25 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return "<p>Hello World</p>"
+
+@app.route("/")
+def products():
+    response = jsonify([
+        {
+        "title": "Caneca Personalizada de porcelana Backend",
+        "amount": 123.45,
+        "installments":{"number" : 3, "total": 41.15, "hasFee":True}
+        },
+        {
+        "title": "Caneca de Tulipa Backend",
+        "amount": 123.45,
+        "installments":{"number" : 3, "total": 41.15}
+        }
+    ])
+    response.headers.add('Access-Control-Allow-Origin','*')
+
+    return response
