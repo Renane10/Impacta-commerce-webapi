@@ -6,7 +6,7 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hello World</p>"
 
-@app.route("/")
+@app.route("/products")
 def products():
     response = jsonify([
         {
@@ -17,7 +17,7 @@ def products():
         {
         "title": "Caneca de Tulipa Backend",
         "amount": 123.45,
-        "installments":{"number" : 3, "total": 41.15}
+        "installments":{"number" : 3, "total": 41.15},
         }
     ])
     response.headers.add('Access-Control-Allow-Origin','*')
